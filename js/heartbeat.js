@@ -25,61 +25,83 @@ var it = "it";
 //Language filters (checkboxes)         
 $("#c1").on('click', function() {
 
-    $.each(arrdata.streams, function(index,item) {
-        if(item.channel.broadcaster_language === "en"){
-           langarr.push(item);
+    if ( $(this).prop( "checked" ) ) {
 
+        console.log('checkedc1');
 
-        }
-        else{
-            langarr = [];
-        }
-        
-    });
+            $.each(arrdata.streams, function(index,item) {
+                if(item.channel.broadcaster_language === en){
+                   langarr.push(item);
+                }
+                
+            });
+    }
+    else{
+        console.log('uncheckedc1');
+        langarr = [];
+    }
 
     
 });
 
 $("#c2").on('click', function() {
 
-        $.each(arrdata.streams, function(index,item) {
-        if(item.channel.broadcaster_language == de){
-           langarr.push(item);
+     if ( $(this).prop( "checked" ) ) {
 
-        }
-        else{
-            langarr = [];
-        }
-    });
+        console.log('checkedc1');
+
+            $.each(arrdata.streams, function(index,item) {
+                if(item.channel.broadcaster_language === de){
+                   langarr.push(item);
+                }
+                
+            });
+    }
+    else{
+        console.log('uncheckedc1');
+        langarr = [];
+    }
 
  
 });
 
 $("#c3").on('click', function() {
 
-        $.each(arrdata.streams, function(index,item) {
-        if(item.channel.broadcaster_language == hr){
-           langarr.push(item);
+        if ( $(this).prop( "checked" ) ) {
 
-        }
-        else{
-            langarr = [];
-        }
-    });
+        console.log('checkedc1');
+
+            $.each(arrdata.streams, function(index,item) {
+                if(item.channel.broadcaster_language === hr){
+                   langarr.push(item);
+                }
+                
+            });
+    }
+    else{
+        console.log('uncheckedc1');
+        langarr = [];
+    }
 
 });
 
 $("#c4").on('click', function() {
 
-        $.each(arrdata.streams, function(index,item) {
-        if(item.channel.broadcaster_language == it){
-           langarr.push(item);
+        if ( $(this).prop( "checked" ) ) {
 
+        console.log('checkedc1');
+
+            $.each(arrdata.streams, function(index,item) {
+                if(item.channel.broadcaster_language === it){
+                   langarr.push(item);
+                }
+                
+                });
         }
         else{
+            console.log('uncheckedc1');
             langarr = [];
         }
-    });
 
 
 });
@@ -123,14 +145,16 @@ function getstreams() {
     url: url,
     data: {
       
-      limit: 50
+      limit: 100
     },
-    success: render
+    success: render,
+    timeout: 10000
 
   });
   
 
 };
+
 
 function render(data) {
     console.log(data);
