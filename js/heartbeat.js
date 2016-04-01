@@ -11,6 +11,12 @@ var api_base_url = "https://api.twitch.tv/kraken/streams";
 var api_search_url = "https://api.twitch.tv/kraken/search/streams?q=";
 var api_suggest_url_add = "&type=suggest";
 var game_filter = '';
+var enurl = "https://api.twitch.tv/kraken/streams?broadcaster_language=en";
+var deurl = "https://api.twitch.tv/kraken/streams?broadcaster_language=de";
+var iturl = "https://api.twitch.tv/kraken/streams?broadcaster_language=it";
+var hrurl = "https://api.twitch.tv/kraken/streams?broadcaster_language=hr";
+
+
 
 // Language filter variables
 var arrdata = '';
@@ -24,89 +30,64 @@ var it = "it";
 
 //Language filters (checkboxes)         
 $("#c1").on('click', function() {
-
-    if ( $(this).prop( "checked" ) ) {
-
-        console.log('checkedc1');
-
-            $.each(arrdata.streams, function(index,item) {
-                if(item.channel.broadcaster_language === en){
-                   langarr.push(item);
-                }
-                
-            });
+    
+    if( $("#c1").prop( "checked" )){
+        url = enurl;
+        $(".stream").remove();
+        getstreams();
     }
     else{
-        console.log('uncheckedc1');
-        langarr = [];
+        url = api_base_url;
+        $(".stream").remove();
+        getstreams();
     }
-
-    
+       
 });
 
 $("#c2").on('click', function() {
-
-     if ( $(this).prop( "checked" ) ) {
-
-        console.log('checkedc1');
-
-            $.each(arrdata.streams, function(index,item) {
-                if(item.channel.broadcaster_language === de){
-                   langarr.push(item);
-                }
-                
-            });
+    if( $("#c1").prop( "checked" )){
+        url = deurl;
+        $(".stream").remove();
+        getstreams();
     }
     else{
-        console.log('uncheckedc1');
-        langarr = [];
+        url = api_base_url;
+        $(".stream").remove();
+        getstreams();
     }
 
+   
  
 });
 
 $("#c3").on('click', function() {
 
-        if ( $(this).prop( "checked" ) ) {
-
-        console.log('checkedc1');
-
-            $.each(arrdata.streams, function(index,item) {
-                if(item.channel.broadcaster_language === hr){
-                   langarr.push(item);
-                }
-                
-            });
+    if( $("#c1").prop( "checked" )){
+        url = hrurl;
+        $(".stream").remove();
+        getstreams();
     }
     else{
-        console.log('uncheckedc1');
-        langarr = [];
+        url = api_base_url;
+        $(".stream").remove();
+        getstreams();
     }
 
+      
 });
 
 $("#c4").on('click', function() {
 
-        if ( $(this).prop( "checked" ) ) {
-
-        console.log('checkedc1');
-
-            $.each(arrdata.streams, function(index,item) {
-                if(item.channel.broadcaster_language === it){
-                   langarr.push(item);
-                }
-                
-                });
-        }
-        else{
-            console.log('uncheckedc1');
-            langarr = [];
-        }
-
-
+    if( $("#c1").prop( "checked" )){
+        url = iturl;
+        getstreams();
+    }
+    else{
+        url = api_base_url;
+        $(".stream").remove();
+        getstreams();
+    }
 });
-
-
 
 // Search by game
 
@@ -131,12 +112,13 @@ function getstreams() {
   if (game_filter == '') {
     url = api_base_url;
   } 
-  else if(game_filter == call){
+  else if (game_filter == call){
     url = api_search_url + game_filter + api_suggest_url_add;
   }
   else {
     url = api_search_url + game_filter;
   }
+
 
 //Ajax call, start render on success
 
@@ -155,7 +137,6 @@ function getstreams() {
 
 };
 
-
 function render(data) {
     console.log(data);
 
@@ -170,6 +151,7 @@ function render(data) {
         
 
     });
+    
       $('.date').each(function() {
            var formatted = moment($(this).text(), 'YYYY-MM-DDThh:mm:ss').format('MMM DD, YYYY'); 
            $(this).text(formatted);
