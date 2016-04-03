@@ -79,13 +79,7 @@ $(".right-menu-item").on('click', function() {
   getstreams();
 });
 
-// Return to all streams
 
-$(".headertitle").on('click', function() {
-  game_filter = '';
-  $(".stream").remove();
-  getstreams();
-});
 
 //Ajax call as a function
 
@@ -170,15 +164,13 @@ $(".streams-wrapper").on('click', '.stream', function() {
   var videoavatar = $(this).find('.avatar').attr('background-image', 'url').text;
   console.log(videoavatar);
   console.log(streamurl);
-  var player = "<iframe src=\"http://player.twitch.tv/?channel=" + streamurl + "\" height=\"530\"width=\"930\"frameborder=\"0\"scrolling=\"no\"allowfullscreen=\"true\"> </iframe>"
+  var player = "<iframe src=\"http://player.twitch.tv/?channel=" + streamurl + "\" height=\"530\"width=\"930\"frameborder=\"1\"scrolling=\"no\"allowfullscreen=\"true\"> </iframe>"
 
 
 
 
   $(".stream").hide();
   $("#loadbutton").hide();
-  $(".left-button-column").hide();
-  $(".right-button-column").hide();
   $(".video").css('display', 'flex');
   $(".streams-wrapper").css('justify-content', 'center');
   $(".streams-wrapper").append("<div class=\"videopopup\"><div class=\"videoplayer\"><div class=\"video-container\"><div class=\"player\">" + player + "</div></div><div class=\"ion-android-close id=\"playerclose\"></div></div><div class=\"videoinfo\"><div class=\"videoinfoleft\"><div class=\"videogamename\">" + videogamename + "</div><div class=\"viewsanddate\"><div class=\"videoviews\"><i class=\"fa fa-eye\"></i><span>" + videoviews + "</span><i class=\"fa fa-circle\"></i><div class=\"videodate\"><span>" + videodate + "</span></div></div></div></div></div>");
@@ -190,8 +182,14 @@ $(".streams-wrapper").on('click', '.ion-android-close', function() {
   $('.videopopup').remove();
 
   $("#loadbutton").show();
-  $(".left-button-column").show();
-  $(".right-button-column").show();
   $(".streams-wrapper").css('justify-content', 'flex-start');
+  getstreams();
+});
+
+// Return to all streams
+
+$(".headertitle").on('click', function() {
+  game_filter = '';
+  $(".stream").remove();
   getstreams();
 });

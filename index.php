@@ -12,7 +12,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
-  
+
 </head>
 
 
@@ -28,7 +28,9 @@
           <div class="checkboxes">
 
             <input type="checkbox" id="c1" />
-            <label for="c1"><div></div></label>
+            <label for="c1">
+              <div></div>
+            </label>
           </div>
         </div>
 
@@ -36,7 +38,9 @@
           <div class="checkboxes">
 
             <input type="checkbox" id="c2" />
-            <label for="c2"><div></div></label>
+            <label for="c2">
+              <div></div>
+            </label>
           </div>
         </div>
 
@@ -44,7 +48,9 @@
           <div class="checkboxes">
 
             <input type="checkbox" id="c3" />
-            <label for="c3"><div></div></label>
+            <label for="c3">
+              <div></div>
+            </label>
           </div>
         </div>
 
@@ -52,7 +58,9 @@
           <div class="checkboxes">
 
             <input type="checkbox" id="c4" />
-            <label for="c4"><div></div></label>
+            <label for="c4">
+              <div></div>
+            </label>
           </div>
         </div>
 
@@ -61,9 +69,10 @@
 
     <div class="left-button-column"><i class="fa fa-filter toggle-left" id="buttonleft"></i></div>
 
-    <div class="content-wrapper" >
-      
-      
+    <div class="content-wrapper">
+      <div class="overlay"></div>
+
+
 
       <div class="header-wrapper">
 
@@ -78,24 +87,25 @@
 
 
       <div class="streams-wrapper">
-       
+
 
       </div>
       <!--End Stream-wrapper-->
 
       <div class="loadmore">
-          <div id="loadbutton">
-            <div id="buttontext">Load<br>More
-              </div>
+        <div id="loadbutton">
+          <div id="buttontext">Load
+            <br>More
           </div>
         </div>
+      </div>
 
 
     </div>
     <!--End Content wrapper-->
 
     <div class="right-button-column">
-        <i class="glyphicon glyphicon-menu-hamburger toggle-right" id="buttonright"></i>
+      <i class="glyphicon glyphicon-menu-hamburger toggle-right" id="buttonright"></i>
 
     </div>
 
@@ -125,14 +135,14 @@
 
     </div>
 
-      <!-- Include jQuery -->
+    <!-- Include jQuery -->
 
-      <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
-      <script src="js/scotchPanels.js"></script>
-      <script src="js/heartbeat.js"></script>   
-      <script src="http://momentjs.com/downloads/moment.min.js" async></script>
+    <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/scotchPanels.js"></script>
+    <script src="js/heartbeat.js"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js" async></script>
 
-      <script type="text/javascript">
+    <script type="text/javascript">
       $('.left-menu-wrapper').scotchPanel({
         containerSelector: 'body', // As a jQuery Selector
         direction: 'left', // Make it toggle in from the left
@@ -172,13 +182,14 @@
         $(this)
           .toggleClass('glyphicon-menu-hamburger')
           .toggleClass('ion-close');
-          
+
 
       });
-    </script>
-    
 
-    
+    </script>
+
+
+
 
 
 </body>
