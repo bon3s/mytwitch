@@ -171,6 +171,8 @@ $(".streams-wrapper").on('click', '.stream', function() {
 
   $(".stream").hide();
   $("#loadbutton").hide();
+  $(".left-button-column").hide()
+  $(".right-button-column").hide()
   $(".video").css('display', 'flex');
   $(".streams-wrapper").css('justify-content', 'center');
   $(".streams-wrapper").append("<div class=\"videopopup\"><div class=\"videoplayer\"><div class=\"video-container\"><div class=\"player\">" + player + "</div></div><div class=\"ion-android-close id=\"playerclose\"></div></div><div class=\"videoinfo\"><div class=\"videoinfoleft\"><div class=\"videogamename\">" + videogamename + "</div><div class=\"viewsanddate\"><div class=\"videoviews\"><i class=\"fa fa-eye\"></i><span>" + videoviews + "</span><i class=\"fa fa-circle\"></i><div class=\"videodate\"><span>" + videodate + "</span></div></div></div></div></div>");
@@ -182,6 +184,8 @@ $(".streams-wrapper").on('click', '.ion-android-close', function() {
   $('.videopopup').remove();
 
   $("#loadbutton").show();
+  $(".left-button-column").show();
+  $(".right-button-column").show();
   $(".streams-wrapper").css('justify-content', 'flex-start');
   getstreams();
 });

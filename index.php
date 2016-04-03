@@ -161,7 +161,9 @@
         clickSelector: '.toggle-right', // Enables toggling when clicking elements of this class
         distanceX: '400px', // Size fo the toggle
         enableEscapeKey: true // Clicking Esc will close the panel
+        
       });
+
 
     </script>
 

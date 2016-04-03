@@ -569,12 +569,15 @@
                 translateX('-' + panel.settings.distanceX);
             }
             $(".overlay").show();
+            
+
         };
 
         // Close ScotchPanel
         panel.close = function() {
             panel.parents('.scotch-panel-canvas:first').removeClass('scotch-is-showing');
             $(".overlay").hide();
+
 
             // Pause YouTube Video (after close...)
             setTimeout(function(){
